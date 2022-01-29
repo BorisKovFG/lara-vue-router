@@ -10,6 +10,7 @@ class DestroyController extends Controller
 {
     public function __invoke(Person $person)
     {
-        return $person->delete();
+        $person->delete();
+        return response([]);
     }
 }

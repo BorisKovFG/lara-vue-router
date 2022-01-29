@@ -19,8 +19,6 @@
 </template>
 
 <script>
-import router from "../../router";
-
 export default {
     name: "Show",
 
@@ -38,13 +36,14 @@ export default {
         getPerson() {
             axios.get(`/api/people/${this.$route.params.id}`)
             .then(res => {
-                this.person = res.data
+                console.log(res);
+                this.person = res.data.data
             })
         },
         deletePerson(id) {
             axios.delete(`/api/people/${id}`)
             .then(res => {
-                router.push({ name: 'person.index'})
+                this.$router.push({ name: 'person.index'})
             })
         }
     }

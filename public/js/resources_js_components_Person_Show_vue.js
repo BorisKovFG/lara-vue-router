@@ -11,7 +11,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../router */ "./resources/js/router.js");
 //
 //
 //
@@ -32,7 +31,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Show",
   data: function data() {
@@ -48,12 +46,15 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get("/api/people/".concat(this.$route.params.id)).then(function (res) {
-        _this.person = res.data;
+        console.log(res);
+        _this.person = res.data.data;
       });
     },
     deletePerson: function deletePerson(id) {
+      var _this2 = this;
+
       axios["delete"]("/api/people/".concat(id)).then(function (res) {
-        _router__WEBPACK_IMPORTED_MODULE_0__["default"].push({
+        _this2.$router.push({
           name: 'person.index'
         });
       });
