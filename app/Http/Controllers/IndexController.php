@@ -8,7 +8,6 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $text = 'Hello, World!!!';
-        return view('post', compact('text'));
+        return view('people');
     }
 }

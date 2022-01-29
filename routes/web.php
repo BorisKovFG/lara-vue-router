@@ -13,8 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{page}', 'IndexController')->where('page', '.*');
+
 
 Auth::routes();
+
+Route::get('/{page}', 'IndexController')->where('page', '.*');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
